@@ -1,0 +1,9 @@
+---
+title: My Vector Icons
+---
+{% assign image_files = site.static_files | where: "extname", ".svg" %}
+<p>
+{% for myimage in image_files %}
+    <a href="{{myimage.path}}" title="{{myimage.basename}}"><img style="padding:5pt;" src="{{ myimage.path }}" alt="{{ myimage.basename }}"></a>
+{% endfor %}
+</p>
