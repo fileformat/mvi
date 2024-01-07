@@ -1,7 +1,7 @@
 ---
 title: My Vector Icons
 ---
-{% assign image_files = site.static_files | where: "extname", ".svg" %}
+{% assign image_files = site.static_files | where: "extname", ".svg" | where_exp: "item", "item.path != '/favicon.svg'" | sort: "basename" %}
 <p>
 {% for myimage in image_files %}
     <a href="{{myimage.path}}" title="{{myimage.basename}}"><img style="padding:5pt;" src="{{ myimage.path }}" alt="{{ myimage.basename }}"></a>
